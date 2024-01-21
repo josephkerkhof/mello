@@ -1,0 +1,16 @@
+name: Deploy to
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: test
+    #env:
+    # TODO: fill out the env vars for the serverless deployment
+
+    steps:
+      - name: Hello
+        run: echo "hello world"
