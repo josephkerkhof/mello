@@ -7,6 +7,15 @@ on:
     branches: [ "master" ]
 
 jobs:
+  install-composer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          php-version: '8.3'
+      - name: Install Dependencies
+        run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
   code-lint:
     runs-on: ubuntu-latest
     steps:
