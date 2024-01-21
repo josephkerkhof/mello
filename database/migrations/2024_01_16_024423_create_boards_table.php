@@ -17,8 +17,6 @@ return new class () extends Migration {
             $table->string('description');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('owner_id')->references('id')->on('users');
         });
     }
 

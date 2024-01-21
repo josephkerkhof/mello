@@ -12,7 +12,7 @@ return new class () extends Migration {
     {
         Schema::create('columns', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('board_id')->constrained('boards');
+            $table->foreignId('board_id');
             $table->string('name');
             $table->integer('position');
             $table->timestamps();
