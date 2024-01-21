@@ -47,6 +47,13 @@ jobs:
           extensions: mbstring, dom, fileinfo, mysql
           coverage: xdebug
 
+      # Docs: https://github.com/actions/setup-node
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+        run: npm run build
+
       # Local MySQL service in GitHub hosted environments is disabled by default.
       # If you are using it instead of service containers, make sure you start it.
       # - name: Start mysql service
