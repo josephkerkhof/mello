@@ -1,6 +1,9 @@
 # GitHub Action for Laravel with MySQL and Redis
-name: Testing Laravel with MySQL
-on: [push, pull_request]
+name: Testing and Deploy
+on:
+  push:
+    branches:
+      - master
 jobs:
   test:
     name: Test Laravel (PHP ${{ matrix.php-versions }})
@@ -97,3 +100,14 @@ jobs:
         env:
           DB_PORT: ${{ job.services.mysql.ports['3306'] }}
           REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: test
+    #env:
+    # TODO: fill out the env vars for the serverless deployment
+
+    steps:
+      - name: Hello
+        run: echo "hello world"
