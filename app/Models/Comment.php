@@ -15,7 +15,7 @@ class Comment extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $fillable = [
         'card_id',
@@ -23,11 +23,17 @@ class Comment extends Model
         'comment_text',
     ];
 
+    /**
+     * @return BelongsTo<Card, Comment>
+     */
     public function card(): BelongsTo
     {
         return $this->belongsTo(Card::class);
     }
 
+    /**
+     * @return BelongsTo<User, Comment>
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

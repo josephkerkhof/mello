@@ -15,7 +15,7 @@ class Column extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $fillable = [
         'board_id',
@@ -23,6 +23,9 @@ class Column extends Model
         'position',
     ];
 
+    /**
+     * @return BelongsTo<Board, Column>
+     */
     public function board(): BelongsTo
     {
         return $this->belongsTo(Board::class);

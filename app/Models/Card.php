@@ -15,7 +15,7 @@ class Card extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $fillable = [
         'column_id',
@@ -23,6 +23,9 @@ class Card extends Model
         'description',
     ];
 
+    /**
+     * @return BelongsTo<Column, Card>
+     */
     public function column(): BelongsTo
     {
         return $this->belongsTo(Column::class);

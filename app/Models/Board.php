@@ -15,7 +15,7 @@ class Board extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $fillable = [
         'owner_id',
@@ -23,6 +23,9 @@ class Board extends Model
         'description',
     ];
 
+    /**
+     * @return BelongsTo<User, Board>
+     */
     public function owner(): BelongsTo
     {
         return $this->belongsTo(User::class);
