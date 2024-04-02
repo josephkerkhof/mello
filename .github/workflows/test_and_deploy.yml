@@ -35,10 +35,10 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
-#      - name: Clear Config
-#        run: php artisan config:clear
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
 
-      - name: Test with Pest
+      - name: Static Analysis with PHPStan
         run: vendor/bin/phpstan analyse
 
   test:
